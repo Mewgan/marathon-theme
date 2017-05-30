@@ -1,0 +1,147 @@
+{% extends template_from_string(data.website_layout) %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block page %}
+
+    {% set home_slider = field_render('home_slider', 'page') %}
+    <div class="slider_wrapper">
+        <div id="camera_wrap" class="">
+            {% for slide in home_slider %}
+            <div data-src="{{ img(slide.image.path) }}">
+                <div class="caption fadeIn">
+                    {{ slide.title }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!--==============================Content=================================-->
+    <div class="content">
+        <div class="container_12">
+
+            <div class="grid_12">
+                <h2 class="center">{{ field_render('home_baseline', 'page') }}</h2>
+                <div class="count_wrap">
+                    <div id="counter"></div>
+                    <div class="clear"></div>
+                    <a href="{{ booking_link }}">Participer</a>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            {% set home_boxes = field_render('home_boxes', 'page') %}
+            {% for box in home_boxes %}
+            <div class="grid_{{ field_render('home_box_grid', 'page') }}">
+                <div class="box">
+                    <div class="box_title">{{ box.title }}</div>
+                    <div class="box_bot">
+                        <div class="maxheight">
+                            <img src="{{ img(box.image.path) }}" alt="{{ box.image.alt }}"><a href="{{ box.link }}">Voir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clear"></div>
+
+            {% set about_us = field_render('home_left_block', 'page') %}
+            <div class="grid_7">
+                <h3>{{ about_us.title }}</h3>
+                <img src="{{ img(about_us.image.path) }}" alt="{{ about_us.image.alt }}" class="img_inner fleft">
+                <div class="extra_wrapper">
+                    {{ about_us.description }}
+                </div>
+            </div>
+
+            <div class="grid_4 prefix_1">
+                <h3>Actualités</h3>
+                <div class="news">
+                    <time datetime="2014-01-01">14<span>MAR</span></time>
+                    <div class="extra_wrapper">
+                        <p class="color1"><a href="index.html#">Magna non nunc tristique rhoncuseri </a></p>
+                        Aliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibuste.
+                    </div>
+                </div>
+                <div class="news">
+                    <time datetime="2014-01-01">28<span>MAR</span></time>
+                    <div class="extra_wrapper">
+                        <p class="color1"><a href="index.html#">Tagna non nunc tristique rhoncuserr </a></p>
+                        Boliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibustew.
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="grid_12">
+                <div class="hor_separator"></div>
+                <h3 class="head1 center">We Will Never Stop</h3>
+            </div>
+            <div class="clear"></div>
+            <div class="grid_12">
+                <div id="grid" class="main">
+                    <div class="view">
+                        <div class="view-back">
+                            <span data-icon="" class="fa fa-eye"><span>110</span></span>
+                            <span data-icon="" class="fa fa-heart-o"><span>60</span></span>
+                            <a href="index.html#">&rarr;</a>
+                        </div>
+                        <img src="images/page1_img5.jpg" />
+                    </div>
+                    <div class="view">
+                        <div class="view-back">
+                            <span data-icon="" class="fa fa-eye"><span>208</span></span>
+                            <span data-icon="" class="fa fa-heart-o"><span>813</span></span>
+                            <a href="index.html#">&rarr;</a>
+                        </div>
+                        <img src="images/page1_img6.jpg" />
+                    </div>
+                    <div class="view">
+                        <div class="view-back">
+                            <span data-icon="" class="fa fa-eye"><span>51</span></span>
+                            <span data-icon="" class="fa fa-heart-o"><span>88</span></span>
+                            <a href="index.html#">&rarr;</a>
+                        </div>
+                        <img src="images/page1_img7.jpg" />
+                    </div>
+                    <div class="clear"></div>
+                    <div class="view">
+                        <div class="view-back">
+                            <span data-icon="" class="fa fa-eye"><span>228</span></span>
+                            <span data-icon="" class="fa fa-heart-o"><span>62</span></span>
+                            <a href="index.html#">&rarr;</a>
+                        </div>
+                        <img src="images/page1_img8.jpg" />
+                    </div>
+                    <div class="view">
+                        <div class="view-back">
+                            <span data-icon="" class="fa fa-eye"><span>117</span></span>
+                            <span data-icon="" class="fa fa-heart-o"><span>368</span></span>
+                            <a href="index.html#">&rarr;</a>
+                        </div>
+                        <img src="images/page1_img9.jpg" />
+                    </div>
+                    <div class="view">
+                        <div class="view-back">
+                            <span data-icon="" class="fa fa-eye"><span>22</span></span>
+                            <span data-icon="" class="fa fa-heart-o"><span>38</span></span>
+                            <a href="index.html#">&rarr;</a>
+                        </div>
+                        <img src="images/page1_img10.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ theme_asset('jquery.countdown.js') }}"></script>
+    <script>
+        $('#counter').countdown({timestamp:(new Date("{{ field_render('home_counter', 'page') }}")).getTime()});
+    </script>
+{% endblock %}
