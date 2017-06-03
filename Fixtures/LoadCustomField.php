@@ -41,13 +41,6 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
             'access_level' => 2,
             'website' => 'Marathon Website',
         ],
-        'Marathon Home Page' => [
-            'title' => 'Page d\'accueil',
-            'rule' => 'page',
-            'operation' => '=',
-            'reference' => 'society-marathon-home',
-            'website' => 'Marathon Website'
-        ],
         'Marathon Seo' => [
             'title' => 'SEO Référencement naturel - Pour améliorer vos positions dans Google veuillez remplir les champs suivants',
             'rule' => 'everywhere',
@@ -55,7 +48,29 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
             'value' => null,
             'website' => 'Marathon Website',
         ],
+        'Marathon Home Page' => [
+            'title' => 'Page d\'accueil',
+            'rule' => 'page',
+            'operation' => '=',
+            'reference' => 'society-marathon-home',
+            'website' => 'Marathon Website'
+        ],
+        'Marathon Gallery Page' => [
+            'title' => 'Galerie',
+            'rule' => 'page',
+            'operation' => '=',
+            'reference' => 'society-marathon-gallery',
+            'website' => 'Marathon Website'
+        ],
+        'Marathon Race Category' => [
+            'title' => 'Catégorie course',
+            'rule' => 'post_category',
+            'operation' => '=',
+            'reference' => 'course',
+            'website' => 'Marathon Website'
+        ],
     ];
+
 
     public function load(ObjectManager $manager)
     {

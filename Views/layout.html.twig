@@ -10,6 +10,9 @@
         <meta name="description" content="{% block description %}{{ field_render('meta_description','page') }}{% endblock %}"/>
         <meta name="keywords" content="{% block keywords %}{{ field_render('meta_keywords','page') }}{% endblock %}" />
         <link rel="icon" href="{{ img(field_render('favicon').path) }}" />
+
+        <script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
+
         <!-- Stylesheet -->
         <link rel="stylesheet" href="{{ asset('libs/font-awesome/font-awesome.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}" type="text/css">
@@ -18,6 +21,7 @@
         <link href="{{ theme_asset('style_common.css') }}" rel="stylesheet"/>
         <link href="{{ theme_asset('style4.css') }}" rel="stylesheet"/>
         <link href="{{ theme_asset('style.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('main.css') }}" rel="stylesheet"/>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -69,7 +73,7 @@
                     {% endfor %}
                 </div>
                 <h1>
-                    <a href="index.html">
+                    <a href="{{ link('home') }}">
                         <img src="{{ img(logo.path) }}" alt="{{ logo.alt }}">
                     </a>
                 </h1>
@@ -80,6 +84,8 @@
     </header>
 
     {% block page %}{% endblock %}
+
+    <div class="clear"></div>
 
 </div>
 <!--==============================footer=================================-->
@@ -103,7 +109,6 @@
 
 <!-- Footer Scripts -->
 <!-- external javascripts -->
-<script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('libs/jquery/jquery-migrate.min.js') }}"></script>
 <!-- JS | jquery plugin collection for this theme -->
 <script defer src="{{ asset('libs/lazysizes/lazysizes.min.js') }}"></script>

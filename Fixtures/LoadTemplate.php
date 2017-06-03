@@ -36,6 +36,38 @@ class LoadTemplate extends AbstractFixture
             'scope' => 'specified',
             'type' => 'file'
         ],
+        'marathon_home_list_news_partial' => [
+            'name' => 'ThemeMarathonHomeNewsListFilePartial',
+            'title' => 'Theme Marathon Home News List Template',
+            'content' => 'Marathon/Views/home_list_news',
+            'category' => 'partial',
+            'scope' => 'specified',
+            'type' => 'file'
+        ],
+        'marathon_page_layout' => [
+            'name' => 'ThemeMarathonPageFileLayout',
+            'title' => 'Theme Marathon Page Template',
+            'content' => 'Marathon/Views/page',
+            'category' => 'layout',
+            'scope' => 'specified',
+            'type' => 'file'
+        ],
+        'marathon_single_post_partial' => [
+            'name' => 'ThemeMarathonPostFilePartial',
+            'title' => 'Theme Marathon Post Template',
+            'content' => 'Marathon/Views/post',
+            'category' => 'partial',
+            'scope' => 'specified',
+            'type' => 'file'
+        ],
+        'marathon_post_list_partial' => [
+            'name' => 'ThemeMarathonPostListFilePartial',
+            'title' => 'Theme Marathon Post List Template',
+            'content' => 'Marathon/Views/post_list',
+            'category' => 'partial',
+            'scope' => 'specified',
+            'type' => 'file'
+        ],
         'marathon_gallery_layout' => [
             'name' => 'ThemeMarathonGalleryFileLayout',
             'title' => 'Theme Marathon Gallery Template',
@@ -44,6 +76,14 @@ class LoadTemplate extends AbstractFixture
             'scope' => 'specified',
             'type' => 'file'
         ],
+        'marathon_contact_layout' => [
+            'name' => 'ThemeMarathonContactFileLayout',
+            'title' => 'Theme Marathon Contact Template',
+            'content' => 'Marathon/Views/contact',
+            'category' => 'layout',
+            'scope' => 'specified',
+            'type' => 'file'
+        ]
     ];
 
     public function load(ObjectManager $manager)

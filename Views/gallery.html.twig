@@ -5,60 +5,24 @@
 {% endblock %}
 
 {% block page %}
-    <!-- Section: inner-header -->
-    <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="{{ img(field_render('subheader', 'page@'~data.page.id).path) }}">
-        <div class="container pt-100 pb-50">
-            <!-- Section Content -->
-            <div class="section-content pt-100">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="title text-white">
-                            {{ data.page.title }}
-                        </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Works Filter -->
-                    <div class="portfolio-filter font-alt align-center">
-                        <a href="#" class="active" data-filter="*">All</a>
-                        {% for category in field_render('gallery_categories','page@'~data.page.id) %}
-                            <a href="#{{ category.title | lower }}" class="" data-filter=".{{ category.title | lower }}">{{ category.title }}</a>
-                        {% endfor %}
-                    </div>
-                    <!-- End Works Filter -->
-
-                    <!-- Portfolio Gallery Grid -->
-                    <div id="grid" class="gallery-isotope grid-4 masonry clearfix">
-                        <!-- Portfolio Item Start -->
-                        {% for gallery in field_render('galleries', 'page@'~data.page.id) %}
-                            <div class="gallery-item {{ gallery.category | lower }}">
-                                <div class="thumb">
-                                    <img class="img-fullwidth" src="{{ img(gallery.image.path) }}" alt="{{ gallery.image.alt }}">
-                                    <div class="overlay-shade"></div>
-                                    <div class="icons-holder">
-                                        <div class="icons-holder-inner">
-                                            <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-                                                <a data-lightbox="image" href="{{ img(gallery.image.path) }}"><i class="fa fa-plus"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="hover-link" data-lightbox="image" href="{{ img(gallery.image.path) }}">Agrandir</a>
-                                </div>
+    <div class="content">
+        <div class="container_12">
+            <div class="grid_12">
+                <h3 class="head1 center">Notre galerie</h3>
+                <div id="grid" class="main">
+                    {% set galleries = field_render('galleries', 'page') %}
+                    {% for gallery in galleries %}
+                        <div class="view">
+                            <div class="view-back">
+                                <a href="{{ img(gallery.image.path) }}">&rarr;</a>
                             </div>
-                        {% endfor %}
-                        <!-- Portfolio Item End -->
-                    </div>
-                    <!-- End Portfolio Gallery Grid -->
+                            <img src="{{ img(gallery.image.path) }}" alt="{{ gallery.image.alt }}"/>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
 {% endblock %}

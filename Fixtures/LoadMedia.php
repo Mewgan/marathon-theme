@@ -91,6 +91,60 @@ class LoadMedia extends AbstractFixture
             'access_level' => 2,
             'scope' => 'specified',
             'alt' => 'About'
+        ],
+        [
+            'title' => 'Image 5',
+            'path' => '/src/Themes/Marathon/Resources/public/img/page1_img5.jpg',
+            'type' => 'image/jpg',
+            'size' => 404299,
+            'access_level' => 2,
+            'scope' => 'specified',
+            'alt' => 'Image 5'
+        ],
+        [
+            'title' => 'Image 6',
+            'path' => '/src/Themes/Marathon/Resources/public/img/page1_img6.jpg',
+            'type' => 'image/jpg',
+            'size' => 404299,
+            'access_level' => 2,
+            'scope' => 'specified',
+            'alt' => 'Image 6'
+        ],
+        [
+            'title' => 'Image 7',
+            'path' => '/src/Themes/Marathon/Resources/public/img/page1_img7.jpg',
+            'type' => 'image/jpg',
+            'size' => 404299,
+            'access_level' => 2,
+            'scope' => 'specified',
+            'alt' => 'Image 7'
+        ],
+        [
+            'title' => 'Image 8',
+            'path' => '/src/Themes/Marathon/Resources/public/img/page1_img8.jpg',
+            'type' => 'image/jpg',
+            'size' => 404299,
+            'access_level' => 2,
+            'scope' => 'specified',
+            'alt' => 'Image 8'
+        ],
+        [
+            'title' => 'Image 9',
+            'path' => '/src/Themes/Marathon/Resources/public/img/page1_img9.jpg',
+            'type' => 'image/jpg',
+            'size' => 404299,
+            'access_level' => 2,
+            'scope' => 'specified',
+            'alt' => 'Image 9'
+        ],
+        [
+            'title' => 'Image 10',
+            'path' => '/src/Themes/Marathon/Resources/public/img/page1_img10.jpg',
+            'type' => 'image/jpg',
+            'size' => 404299,
+            'access_level' => 2,
+            'scope' => 'specified',
+            'alt' => 'Image 10'
         ]
     ];
     

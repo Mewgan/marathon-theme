@@ -5,6 +5,7 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Jet\Modules\Navigation\Services\LoadNavigationFixture;
+use Jet\Modules\Post\Services\LoadPostFixture;
 
 /**
  * Class LoadNavigationItem
@@ -12,7 +13,7 @@ use Jet\Modules\Navigation\Services\LoadNavigationFixture;
  */
 class LoadNavigationItem extends AbstractFixture implements DependentFixtureInterface
 {
-
+    use LoadPostFixture;
     use LoadNavigationFixture;
     /**
      * @var array
@@ -31,14 +32,14 @@ class LoadNavigationItem extends AbstractFixture implements DependentFixtureInte
             'website' => 'marathon-society',
         ],
         [
-            'title' => 'À propos',
+            'title' => 'Actualités',
             'navigation' => 'marathon-menu',
             'parent' => null,
             'children' => [],
-            'url' => '/#a-propos',
-            'route' => null,
-            'type' => 'custom',
-            'type_id' => null,
+            'url' => '/articles/actualite',
+            'route' => 'module:post.type:dynamic.action:all',
+            'type' => 'post_category',
+            'type_id' => 'actualite',
             'position' => 1,
             'website' => 'marathon-society',
         ],
@@ -47,10 +48,10 @@ class LoadNavigationItem extends AbstractFixture implements DependentFixtureInte
             'navigation' => 'marathon-menu',
             'parent' => null,
             'children' => [],
-            'url' => '/#calendrier',
-            'route' => null,
-            'type' => 'custom',
-            'type_id' => null,
+            'url' => '/articles/course',
+            'route' => 'module:post.type:dynamic.action:all',
+            'type' => 'post_category',
+            'type_id' => 'course',
             'position' => 2,
             'website' => 'marathon-society',
         ],
@@ -71,11 +72,11 @@ class LoadNavigationItem extends AbstractFixture implements DependentFixtureInte
             'navigation' => 'marathon-menu',
             'parent' => null,
             'children' => [],
-            'url' => '/#contact',
-            'route' => null,
-            'type' => 'custom',
-            'type_id' => null,
-            'position' => 5,
+            'url' => '/contact',
+            'route' => 'module:contact.type:static.action:show',
+            'type' => 'page',
+            'type_id' => 'society-marathon-contact',
+            'position' => 4,
             'website' => 'marathon-society',
         ]
     ];
@@ -85,6 +86,8 @@ class LoadNavigationItem extends AbstractFixture implements DependentFixtureInte
      */
     public function load(ObjectManager $manager)
     {
+        $this->addNavigationTypeCallback('post','getPostTypeId');
+        $this->addNavigationTypeCallback('post_category','getPostCategoryTypeId');
         $this->loadNavigationItem($manager);
     }
 
@@ -100,7 +103,8 @@ class LoadNavigationItem extends AbstractFixture implements DependentFixtureInte
         return [
             'Jet\Themes\Marathon\Fixtures\LoadWebsite',
             'Jet\Themes\Marathon\Fixtures\LoadNavigation',
-            'Jet\Themes\Marathon\Fixtures\LoadPage'
+            'Jet\Themes\Marathon\Fixtures\LoadPage',
+            'Jet\Themes\Marathon\Fixtures\LoadPostCategory'
         ];
     }
 }

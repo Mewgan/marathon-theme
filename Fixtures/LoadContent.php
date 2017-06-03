@@ -31,7 +31,97 @@ class LoadContent extends AbstractFixture implements DependentFixtureInterface
                 'class' => '',
                 'navigation' => 'marathon-menu'
             ]
-        ]
+        ],
+        'marathon_list_post_content' => [
+            'cat_mod' => 'post',
+            'name' => 'Liste d\'articles',
+            'block' => 'list_post',
+            'website' => 'marathon-society',
+            'module' => 'list-post',
+            'template' => 'marathon_post_list_partial',
+            'section' => null,
+            'page' => 'society-marathon-list-post',
+            'data' => [
+                'class' => '',
+                'route_name' => 'module:post.type:dynamic.action:read',
+                'total_row' => 100,
+                'db' => [
+                    [
+                        'alias' => 'c',
+                        'type' => 'dynamic',
+                        'column' => 'slug',
+                        'route' => 'slug',
+                        'value' => [],
+                    ]
+                ],
+                'link' => [
+                    [
+                        'alias' => 'p',
+                        'type' => 'dynamic',
+                        'route' => 'slug',
+                        'column' => 'slug',
+                        'value' => '',
+                        'value_id' => ''
+                    ]
+                ],
+            ]
+        ],
+        'marathon_single_post_content' => [
+            'cat_mod' => 'post',
+            'name' => 'Article',
+            'block' => 'single_post',
+            'website' => 'marathon-society',
+            'module' => 'single-post',
+            'template' => 'marathon_single_post_partial',
+            'section' => null,
+            'page' => 'society-marathon-single-post',
+            'data' => [
+                'class' => '',
+                'db' => [
+                    [
+                        'alias' => 'p',
+                        'type' => 'dynamic',
+                        'column' => 'slug',
+                        'route' => 'slug',
+                        'value' => [],
+                    ]
+                ]
+            ]
+        ],
+        'marathon_list_home_news_content' => [
+            'cat_mod' => 'post',
+            'name' => 'Liste d\'actualités',
+            'block' => 'home_list_news',
+            'website' => 'marathon-society',
+            'module' => 'list-post',
+            'template' => 'marathon_home_list_news_partial',
+            'section' => null,
+            'page' => 'society-marathon-home',
+            'data' => [
+                'class' => '',
+                'route_name' => 'module:post.type:dynamic.action:read',
+                'total_row' => 2,
+                'db' => [
+                    [
+                        'alias' => 'c',
+                        'type' => 'static',
+                        'column' => '',
+                        'route' => '',
+                        'value' => ['actualite'],
+                    ]
+                ],
+                'link' => [
+                    [
+                        'alias' => 'p',
+                        'type' => 'dynamic',
+                        'route' => 'slug',
+                        'column' => 'slug',
+                        'value' => '',
+                        'value_id' => ''
+                    ]
+                ],
+            ]
+        ],
     ];
 
     public function load(ObjectManager $manager)

@@ -18,17 +18,56 @@ class LoadPost extends AbstractFixture implements DependentFixtureInterface
         'marathon-about-us' => [
             'title' => 'A propos de nous',
             'slug' => 'a-propos-de-nous',
-            'short_description' => 'Un salon de coiffure chaleureux et convivial situé au cœur de Paris.',
-            'content' => '<div class="caption"> <span class="text-uppercase letter-space-4 mb-10 text-theme-colored">Depuis 1986, notre salon prend soin de vous et de vos cheveux.</span>
-                  <p>Notre expertise nous a permis de nous élever  parmi les 10 meilleurs salons de coiffure de la capitale. Parce que votre satisfaction est notre priorité, nous donnons le meilleur de nous-même pour vous apporter le  meilleur des services et des conseils.</p>  
-                   <p>Notre équipe contient une grande diversité de professionnels : coiffeurs visagistes ou bien barbier sont à votre écoute pour réaliser tous vos souhaits et révéler votre personnalité. </p>
-                  <p>Un salon de coiffure chaleureux et convivial situé au cœur de Paris.</p>
-                  <p>Notre équipe est composée d\'expert, à votre écoute, pour réaliser tous vos souhaits.</p>
-                </div>',
+            'short_description' => 'Ecommodo re luctus libero. Praesent faucibusertulomi malesuada cibuste. Donec laoreet metus id laoreetert malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'content' => '<p>Ecommodo re luctus libero. Praesent faucibusertulomi malesuada cibuste. Donec laoreet metus id laoreetert malesuada. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur orci sed ertoli molo Curabitur vel lorem sit amet nulla ullamcorper</p>',
             'thumbnail' => '/src/Themes/Marathon/Resources/public/img/page1_img4.jpg',
             'categories' => [],
             'website' => 'marathon-society'
         ],
+        'marathon-actu-1' => [
+            'title' => 'Magna non nunc tristique rhoncuseri',
+            'slug' => 'magna-non-nunc-tristique-rhoncuseri',
+            'short_description' => 'Aliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibuste.',
+            'content' => '<p>Aliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibuste.</p>',
+            'thumbnail' => '/src/Themes/Marathon/Resources/public/img/page1_img5.jpg',
+            'categories' => [
+                'actualite'
+            ],
+            'website' => 'marathon-society'
+        ],
+        'marathon-actu-2' => [
+            'title' => 'Tagna non nunc tristique rhoncuseri',
+            'slug' => 'tagna-non-nunc-tristique-rhoncuseri',
+            'short_description' => 'Boliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibustew.',
+            'content' => '<p>Boliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibustew.</p>',
+            'thumbnail' => '/src/Themes/Marathon/Resources/public/img/page1_img6.jpg',
+            'categories' => [
+                'actualite'
+            ],
+            'website' => 'marathon-society'
+        ],
+        'marathon-race-1' => [
+            'title' => 'Course 1',
+            'slug' => 'course-1',
+            'short_description' => 'Aliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibuste.',
+            'content' => '<p>Aliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibuste.</p>',
+            'thumbnail' => '/src/Themes/Marathon/Resources/public/img/page1_img7.jpg',
+            'categories' => [
+                'course'
+            ],
+            'website' => 'marathon-society'
+        ],
+        'marathon-race-2' => [
+            'title' => 'Course 2',
+            'slug' => 'course-2',
+            'short_description' => 'Boliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibustew.',
+            'content' => '<p>Boliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibustew.</p>',
+            'thumbnail' => '/src/Themes/Marathon/Resources/public/img/page1_img8.jpg',
+            'categories' => [
+                'course'
+            ],
+            'website' => 'marathon-society'
+        ]
     ];
 
     public function load(ObjectManager $manager)
@@ -47,6 +86,7 @@ class LoadPost extends AbstractFixture implements DependentFixtureInterface
         return [
             'Jet\Themes\Marathon\Fixtures\LoadWebsite',
             'Jet\Themes\Marathon\Fixtures\LoadMedia',
+            'Jet\Themes\Marathon\Fixtures\LoadPostCategory',
         ];
     }
 }

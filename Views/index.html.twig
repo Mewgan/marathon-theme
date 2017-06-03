@@ -47,94 +47,39 @@
                 </div>
             </div>
             {% endfor %}
+
             <div class="clear"></div>
 
             {% set about_us = field_render('home_left_block', 'page') %}
             <div class="grid_7">
                 <h3>{{ about_us.title }}</h3>
-                <img src="{{ img(about_us.image.path) }}" alt="{{ about_us.image.alt }}" class="img_inner fleft">
-                <div class="extra_wrapper">
+                <img src="{{ img(about_us.thumbnail.path) }}" alt="{{ about_us.thumbnail.alt }}" class="img_inner fleft">
+                <div>
                     {{ about_us.description }}
                 </div>
+                <a href="{{ link('module:post.type:dynamic.action:read',{'slug': about_us.slug}) }}" class="btn">Voir plus</a>
             </div>
 
-            <div class="grid_4 prefix_1">
-                <h3>Actualités</h3>
-                <div class="news">
-                    <time datetime="2014-01-01">14<span>MAR</span></time>
-                    <div class="extra_wrapper">
-                        <p class="color1"><a href="index.html#">Magna non nunc tristique rhoncuseri </a></p>
-                        Aliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibuste.
-                    </div>
-                </div>
-                <div class="news">
-                    <time datetime="2014-01-01">28<span>MAR</span></time>
-                    <div class="extra_wrapper">
-                        <p class="color1"><a href="index.html#">Tagna non nunc tristique rhoncuserr </a></p>
-                        Boliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibustew.
-                    </div>
-                </div>
-            </div>
+            {{ content_render('home_list_news') }}
+
             <div class="clear"></div>
+
             <div class="grid_12">
-                <div class="hor_separator"></div>
-                <h3 class="head1 center">We Will Never Stop</h3>
+                <div class="hor_separator hor__1"></div>
+                <h3>Témoignages</h3>
             </div>
             <div class="clear"></div>
-            <div class="grid_12">
-                <div id="grid" class="main">
-                    <div class="view">
-                        <div class="view-back">
-                            <span data-icon="" class="fa fa-eye"><span>110</span></span>
-                            <span data-icon="" class="fa fa-heart-o"><span>60</span></span>
-                            <a href="index.html#">&rarr;</a>
-                        </div>
-                        <img src="images/page1_img5.jpg" />
-                    </div>
-                    <div class="view">
-                        <div class="view-back">
-                            <span data-icon="" class="fa fa-eye"><span>208</span></span>
-                            <span data-icon="" class="fa fa-heart-o"><span>813</span></span>
-                            <a href="index.html#">&rarr;</a>
-                        </div>
-                        <img src="images/page1_img6.jpg" />
-                    </div>
-                    <div class="view">
-                        <div class="view-back">
-                            <span data-icon="" class="fa fa-eye"><span>51</span></span>
-                            <span data-icon="" class="fa fa-heart-o"><span>88</span></span>
-                            <a href="index.html#">&rarr;</a>
-                        </div>
-                        <img src="images/page1_img7.jpg" />
-                    </div>
-                    <div class="clear"></div>
-                    <div class="view">
-                        <div class="view-back">
-                            <span data-icon="" class="fa fa-eye"><span>228</span></span>
-                            <span data-icon="" class="fa fa-heart-o"><span>62</span></span>
-                            <a href="index.html#">&rarr;</a>
-                        </div>
-                        <img src="images/page1_img8.jpg" />
-                    </div>
-                    <div class="view">
-                        <div class="view-back">
-                            <span data-icon="" class="fa fa-eye"><span>117</span></span>
-                            <span data-icon="" class="fa fa-heart-o"><span>368</span></span>
-                            <a href="index.html#">&rarr;</a>
-                        </div>
-                        <img src="images/page1_img9.jpg" />
-                    </div>
-                    <div class="view">
-                        <div class="view-back">
-                            <span data-icon="" class="fa fa-eye"><span>22</span></span>
-                            <span data-icon="" class="fa fa-heart-o"><span>38</span></span>
-                            <a href="index.html#">&rarr;</a>
-                        </div>
-                        <img src="images/page1_img10.jpg" />
-                    </div>
-                </div>
+            {% set testimonials = field_render('home_testimonials', 'page') %}
+            {% for testimonial in testimonials %}
+            <div class="grid_4">
+                <blockquote class="bq1">
+                    <p>{{ testimonial.content }}</p>
+                    <div class="alright">{{ testimonial.user }}</div>
+                </blockquote>
             </div>
+            {% endfor %}
             <div class="clear"></div>
+
         </div>
     </div>
 {% endblock %}

@@ -1,0 +1,45 @@
+{% extends template_from_string(data.website_layout) %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block page %}
+
+    <div class="content">
+        <div class="container_12">
+            <div class="grid_12">
+                <h3>Où nous trouver</h3>
+                <div class="map" id="gmap" style="height: 350px;"></div>
+            </div>
+            <div class="clear"></div>
+            <div class="grid_12 center">
+                <h3>Information de contact</h3>
+                <h4 class="fz2">{{ society.name }}</h4><br>
+                {{ address.address }},<br>
+                {{ address.postal_code }} <br>
+                {{ address.city }} <br>
+                E-mail: <span class="color1"><a href="mailto:{{ society.email }}">{{ society.email }}</a></span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyArNGSSl-KPS23l24EilPNQhfmEw_V8BtI&libraries=places&region=FR"></script>
+    <script>
+        $(document).ready(function () {
+            var latlng = new google.maps.LatLng({{ address.latitude }}, {{ address.longitude }});
+            var map = new google.maps.Map(document.getElementById('gmap'), {
+                zoom: 13,
+                center: latlng
+            });
+            new google.maps.Marker({
+                position: latlng,
+                map: map
+            });
+        })
+    </script>
+{% endblock %}

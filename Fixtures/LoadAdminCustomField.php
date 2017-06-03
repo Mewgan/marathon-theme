@@ -360,6 +360,128 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             ],
             'content' => ['page@society-marathon-home' => 'marathon-about-us']
         ],
+        'marathon_home_testimonials' => [
+            'scope' => 'specified',
+            'title' => 'Témoignages',
+            'name' => 'home_testimonials',
+            'type' => 'repeater',
+            'position' => 6,
+            'parent' => null,
+            'cf' => 'Marathon Home Page',
+            'data' => [
+                'min_row' => '',
+                'max_row' => ''
+            ],
+            'content' => [
+                'type' => 'repeater',
+                'rows@page@society-marathon-home' => [0,1,2]
+            ]
+        ],
+        'marathon_home_testimonials_content' => [
+            'scope' => 'specified',
+            'title' => 'Texte',
+            'name' => 'content',
+            'type' => 'textarea',
+            'position' => 0,
+            'parent' => 'marathon_home_testimonials',
+            'cf' => 'Marathon Home Page',
+            'data' => [],
+            'content' => [
+                'page@society-marathon-home' => [
+                    'Lorem ipsum dolor sit amet, consectetur adipiscinger elit. In mollis erat mattis neque facilisis, sit ameter ultricies erat rutrum. Cras facilisis, nulla vel viver auctor, leo magna...',
+                    'Dorem ipsum dolor sit amet, consectetur adipiscinger elit. In mollis erat mattis neque facilisis, sit ameter ultricies erat rutrum. Cras facilisis, nulla vel viver auctor, leo magwe...',
+                    'Gorem ipsum dolor sit amet, consectetur adipiscinger elit. In mollis erat mattis neque facilisis, sit ameter ultricies erat rutrum. Cras facilisis, nulla vel viver auctoro magndales...',
+                ]
+            ]
+        ],
+        'marathon_home_testimonials_user' => [
+            'scope' => 'specified',
+            'title' => 'Nom',
+            'name' => 'user',
+            'type' => 'string',
+            'position' => 1,
+            'parent' => 'marathon_home_testimonials',
+            'cf' => 'Marathon Home Page',
+            'data' => [],
+            'content' => [
+                'page@society-marathon-home' => [
+                    'Jean Paul',
+                    'Jean Pierre',
+                    'Jean Louis',
+                ]
+            ]
+        ],
+        /* Marathon gallery page fields */
+        'marathon_galleries' => [
+            'scope' => 'specified',
+            'title' => 'Galerie',
+            'name' => 'galleries',
+            'type' => 'repeater',
+            'position' => 0,
+            'parent' => null,
+            'cf' => 'Marathon Gallery Page',
+            'data' => [
+                'min_row' => '',
+                'max_row' => ''
+            ],
+            'content' => [
+                'type' => 'repeater',
+                'rows@page@society-marathon-gallery' => [0,1,2,3,4,5]
+            ]
+        ],
+        'marathon_galleries_img' => [
+            'scope' => 'specified',
+            'title' => 'Image',
+            'name' => 'image',
+            'type' => 'media',
+            'position' => 0,
+            'parent' => 'marathon_galleries',
+            'cf' => 'Marathon Home Page',
+            'data' => [
+                'media_render_type' => 'object'
+            ],
+            'content' => [
+                'page@society-marathon-home' => [
+                    '/src/Themes/Marathon/Resources/public/img/page1_img5.jpg',
+                    '/src/Themes/Marathon/Resources/public/img/page1_img6.jpg',
+                    '/src/Themes/Marathon/Resources/public/img/page1_img7.jpg',
+                    '/src/Themes/Marathon/Resources/public/img/page1_img8.jpg',
+                    '/src/Themes/Marathon/Resources/public/img/page1_img9.jpg',
+                    '/src/Themes/Marathon/Resources/public/img/page1_img10.jpg',
+                ]
+            ]
+        ],
+        /* Marathon race category fields */
+        'marathon_race_date' => [
+            'scope' => 'specified',
+            'title' => 'Date de la course',
+            'name' => 'race_date',
+            'type' => 'date',
+            'position' => 0,
+            'parent' => null,
+            'cf' => 'Marathon Race Category',
+            'data' => [
+                'date_format' => 'dd-mm-yyyy'
+            ],
+            'content' => [
+                'post@marathon-race-1' => '14-06-2018',
+                'post@marathon-race-2' => '21-10-2018',
+            ]
+        ],
+        'marathon_race_booking_link' => [
+            'scope' => 'specified',
+            'title' => 'Lien de réservation',
+            'name' => 'race_booking_link',
+            'type' => 'string',
+            'position' => 1,
+            'parent' => null,
+            'cf' => 'Marathon Race Category',
+            'data' => [],
+            'content' => [
+                'post@marathon-race-1' => '',
+                'post@marathon-race-2' => '',
+            ]
+        ],
     ];
 
     public function load(ObjectManager $manager)
@@ -382,6 +504,7 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
         return [
             'Jet\Themes\Marathon\Fixtures\LoadMedia',
             'Jet\Themes\Marathon\Fixtures\LoadPage',
+            'Jet\Themes\Marathon\Fixtures\LoadPost',
             'Jet\Themes\Marathon\Fixtures\LoadWebsite',
             'Jet\Themes\Marathon\Fixtures\LoadCustomField'
         ];

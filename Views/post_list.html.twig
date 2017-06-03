@@ -1,0 +1,65 @@
+<div class="content">
+    <div class="container_12">
+        <div class="grid_12 mb40">
+            {% if posts[0] is defined %}
+                <h2 class="mb40 color2 center">{{ posts[0].categories[0].name }}</h2>
+                {% if posts[0].categories[0].slug == 'course' %}
+                    <ul class="list mb20">
+                        {% for post in posts %}
+                            {% set params = {} %}
+                            {% for arg in args %}
+                                {% if arg.value != '' %}
+                                    {% set params = params|merge({(arg.route):arg.value}) %}
+                                {% else %}
+                                    {% if arg.alias == 'p' %}
+                                        {% set params = params|merge({(arg.route):attribute(post,arg.column)}) %}
+                                    {% elseif arg.alias == 'c' %}
+                                        {% set params = params|merge({(arg.route):attribute(post.categories[0],arg.column)}) %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            <li>
+                                <div class="list_count">{{ loop.index }}</div>
+                                <div class="extra_wrapper">
+                                    <p><img src="{{ img(post.thumbnail.path) }}" alt="{{ post.thumbnail.alt }}"></p>
+                                    <h3 class="color1 pt0"><a href="{{ link(route,params) }}">{{ post.title }}</a></h3>
+                                    <p>{{ post.description }}</p>
+                                    <a href="{{ link(route,params) }}" class="btn">Voir plus</a>
+                                </div>
+                                <div class="hor_separator mb20 pt30"></div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+
+                    {% for post in posts %}
+                        {% set params = {} %}
+                        {% for arg in args %}
+                            {% if arg.value != '' %}
+                                {% set params = params|merge({(arg.route):arg.value}) %}
+                            {% else %}
+                                {% if arg.alias == 'p' %}
+                                    {% set params = params|merge({(arg.route):attribute(post,arg.column)}) %}
+                                {% elseif arg.alias == 'c' %}
+                                    {% set params = params|merge({(arg.route):attribute(post.categories[0],arg.column)}) %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <div class="news">
+                            <time datetime="{{ post.updated_at | date('Y-m-d') }}">{{ post.updated_at | date("d") }}<span>{{ post.updated_at | date("M") }}</span></time>
+                            <div class="extra_wrapper">
+                                <p><img src="{{ img(post.thumbnail.path) }}" alt="{{ post.thumbnail.alt }}"></p>
+                                <h3 class="color1 pt0"><a href="{{ link(route,params) }}">{{ post.title }}</a></h3>
+                                <p>{{ post.description }}</p>
+                                <a href="{{ link(route,params) }}" class="btn">Voir plus</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>

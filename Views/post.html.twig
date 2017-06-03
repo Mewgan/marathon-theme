@@ -1,0 +1,30 @@
+<div class="content">
+    <div class="container_12">
+        <div class="grid_12 mb40">
+            <h2 class="mb40 color2 center">{{ post.title }}</h2>
+            <div class="center mb40">
+                <img src="{{ img(post.thumbnail.path) }}" alt="{{ post.thumbnail.alt }}">
+            </div>
+            {{ post.content|raw }}
+        </div>
+        {% set race_date = field_render('race_date', 'post@'~post.id) %}
+        {% if not race_date is empty %}
+            <div class="grid_6 mb40">
+                Date de la course : {{ race_date }}
+            </div>
+        {% endif %}
+        {% set race_booking_link = field_render('race_booking_link', 'post@'~post.id) %}
+        {% if not race_booking_link is empty %}
+            <div class="grid_6 mb40">
+                <a href="{{ race_booking_link }}" class="btn mt0">Lien de réservation</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="clear"></div>
+<script>
+    document.title = "{{ field_render('meta_title', 'post@' ~ post.id) }}";
+    $('meta[name=description]').attr('content', "{{ field_render('meta_description', 'post@' ~ post.id) }}");
+    $('meta[name=keywords]').attr('content', "{{ field_render('meta_keywords', 'post@' ~ post.id) }}");
+</script>
