@@ -436,12 +436,12 @@ class LoadAdminCustomField extends AbstractFixture implements DependentFixtureIn
             'type' => 'media',
             'position' => 0,
             'parent' => 'marathon_galleries',
-            'cf' => 'Marathon Home Page',
+            'cf' => 'Marathon Gallery Page',
             'data' => [
                 'media_render_type' => 'object'
             ],
             'content' => [
-                'page@society-marathon-home' => [
+                'page@society-marathon-gallery' => [
                     '/src/Themes/Marathon/Resources/public/img/page1_img5.jpg',
                     '/src/Themes/Marathon/Resources/public/img/page1_img6.jpg',
                     '/src/Themes/Marathon/Resources/public/img/page1_img7.jpg',

@@ -17,7 +17,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/png',
             'size' => 137577,
             'access_level' => 2,
-            'scope' => 'global',
             'alt' => 'Theme marathon thumbnail'
         ],
         [
@@ -26,7 +25,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/png',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'global',
             'alt' => 'Logo marathon'
         ],
         [
@@ -35,7 +33,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'global',
             'alt' => 'Theme marathon home page slide 1'
         ],
         [
@@ -44,7 +41,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Theme marathon home page slide 2'
         ],
         [
@@ -53,7 +49,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Theme marathon home page slide 3'
         ],
         [
@@ -62,7 +57,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Book'
         ],
         [
@@ -71,7 +65,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Runners'
         ],
         [
@@ -80,7 +73,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Field'
         ],
         [
@@ -89,7 +81,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'About'
         ],
         [
@@ -98,7 +89,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Image 5'
         ],
         [
@@ -107,7 +97,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Image 6'
         ],
         [
@@ -116,7 +105,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Image 7'
         ],
         [
@@ -125,7 +113,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Image 8'
         ],
         [
@@ -134,7 +121,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Image 9'
         ],
         [
@@ -143,7 +129,6 @@ class LoadMedia extends AbstractFixture
             'type' => 'image/jpg',
             'size' => 404299,
             'access_level' => 2,
-            'scope' => 'specified',
             'alt' => 'Image 10'
         ]
     ];

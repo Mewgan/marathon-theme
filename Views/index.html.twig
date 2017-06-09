@@ -21,66 +21,81 @@
 
     <!--==============================Content=================================-->
     <div class="content">
-        <div class="container_12">
+        <section class="container">
+            <div class="row">
 
-            <div class="grid_12">
-                <h2 class="center">{{ field_render('home_baseline', 'page') }}</h2>
-                <div class="count_wrap">
-                    <div id="counter"></div>
-                    <div class="clear"></div>
-                    <a href="{{ booking_link }}">Participer</a>
+                <div class="col-md-12">
+                    <h2 class="center">{{ field_render('home_baseline', 'page') }}</h2>
+                    <div class="count_wrap">
+                        <div id="counter"></div>
+                        <div class="clear"></div>
+                        <a href="{{ booking_link }}">Participer</a>
+                    </div>
                 </div>
+
+                <div class="clear"></div>
             </div>
-
-            <div class="clear"></div>
-
-            {% set home_boxes = field_render('home_boxes', 'page') %}
-            {% for box in home_boxes %}
-            <div class="grid_{{ field_render('home_box_grid', 'page') }}">
-                <div class="box">
-                    <div class="box_title">{{ box.title }}</div>
-                    <div class="box_bot">
-                        <div class="maxheight">
-                            <img src="{{ img(box.image.path) }}" alt="{{ box.image.alt }}"><a href="{{ box.link }}">Voir plus</a>
+        </section>
+        <section class="container">
+            <div class="row">
+                {% set home_boxes = field_render('home_boxes', 'page') %}
+                {% for box in home_boxes %}
+                <div class="col-md-{{ field_render('home_box_grid', 'page') }}">
+                    <div class="box">
+                        <div class="box_title">{{ box.title }}</div>
+                        <div class="box_bot">
+                            <div class="centered">
+                                <img src="{{ img(box.image.path) }}" alt="{{ box.image.alt }}"><br>
+                                <a href="{{ box.link }}">Voir plus</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
+
+                <div class="clear"></div>
             </div>
-            {% endfor %}
+        </section>
+        <section class="container">
+            <div class="row">
 
-            <div class="clear"></div>
-
-            {% set about_us = field_render('home_left_block', 'page') %}
-            <div class="grid_7">
-                <h3>{{ about_us.title }}</h3>
-                <img src="{{ img(about_us.thumbnail.path) }}" alt="{{ about_us.thumbnail.alt }}" class="img_inner fleft">
-                <div>
-                    {{ about_us.description }}
+                {% set about_us = field_render('home_left_block', 'page') %}
+                <div class="col-md-7 col-sm-12">
+                    <h3>{{ about_us.title }}</h3>
+                    <img src="{{ img(about_us.thumbnail.path) }}" alt="{{ about_us.thumbnail.alt }}" class="img_inner fleft">
+                    <div>
+                        {{ about_us.description }}
+                    </div>
+                    <a href="{{ link('module:post.type:dynamic.action:read',{'slug': about_us.slug}) }}" class="btn">Voir plus</a>
                 </div>
-                <a href="{{ link('module:post.type:dynamic.action:read',{'slug': about_us.slug}) }}" class="btn">Voir plus</a>
+
+                {{ content_render('home_list_news') }}
+
+                <div class="clear"></div>
             </div>
-
-            {{ content_render('home_list_news') }}
-
-            <div class="clear"></div>
-
-            <div class="grid_12">
-                <div class="hor_separator hor__1"></div>
-                <h3>Témoignages</h3>
+        </section>
+        <section class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hor_separator hor__1"></div>
+                    <h3>Témoignages</h3>
+                </div>
+                <div class="clear"></div>
             </div>
-            <div class="clear"></div>
-            {% set testimonials = field_render('home_testimonials', 'page') %}
-            {% for testimonial in testimonials %}
-            <div class="grid_4">
-                <blockquote class="bq1">
-                    <p>{{ testimonial.content }}</p>
-                    <div class="alright">{{ testimonial.user }}</div>
-                </blockquote>
-            </div>
-            {% endfor %}
-            <div class="clear"></div>
+            <div class="row">
+                {% set testimonials = field_render('home_testimonials', 'page') %}
+                {% for testimonial in testimonials %}
+                <div class="col-md-4 col-sm-12 mb10">
+                    <blockquote class="bq1">
+                        <p>{{ testimonial.content }}</p>
+                        <div class="alright">{{ testimonial.user }}</div>
+                    </blockquote>
+                </div>
+                {% endfor %}
+                <div class="clear"></div>
 
-        </div>
+            </div>
+        </section>
     </div>
 {% endblock %}
 

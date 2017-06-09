@@ -1,21 +1,23 @@
-<div class="content">
-    <div class="container_12">
-        <div class="grid_12 mb40">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mb40">
             <h2 class="mb40 color2 center">{{ post.title }}</h2>
             <div class="center mb40">
                 <img src="{{ img(post.thumbnail.path) }}" alt="{{ post.thumbnail.alt }}">
             </div>
             {{ post.content|raw }}
         </div>
+    </div>
+    <div class="row">
         {% set race_date = field_render('race_date', 'post@'~post.id) %}
         {% if not race_date is empty %}
-            <div class="grid_6 mb40">
+            <div class="col-md-6 col-sm-12 mb40">
                 Date de la course : {{ race_date }}
             </div>
         {% endif %}
         {% set race_booking_link = field_render('race_booking_link', 'post@'~post.id) %}
         {% if not race_booking_link is empty %}
-            <div class="grid_6 mb40">
+            <div class="col-md-6 col-sm-12 mb40">
                 <a href="{{ race_booking_link }}" class="btn mt0">Lien de réservation</a>
             </div>
         {% endif %}

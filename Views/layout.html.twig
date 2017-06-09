@@ -54,7 +54,7 @@
 
     {% endblock %}
 </head>
-<body class="page1" id="top">
+<body class="page1 container-fluid" id="top">
 
 {% set society = data_render('Jet\\Models\\Society', ['s.name','s.email','s.phone']) %}
 {% set address = data_render('Jet\\Models\\Address', ['a.address','a.city','a.postal_code','a.country','a.latitude','a.longitude']) %}
@@ -65,8 +65,8 @@
 <div class="main">
     <!--==============================header=================================-->
     <header>
-        <div class="container_12">
-            <div class="grid_12">
+        <div class="row">
+            <div class="col-md-12">
                 <div class="socials">
                     {% for social in socials %}
                         <a href="{{ social.link }}" class="fa fa-{{ social.name | replace({' ': '-'}) | lower }}"></a>
@@ -90,8 +90,8 @@
 </div>
 <!--==============================footer=================================-->
 <footer>
-    <div class="container_12">
-        <div class="grid_12">
+    <div class="row">
+        <div class="col-md-12">
             <div class="f_logo">
                 <a href="{{ path('home') }}">{{ society.name }}</a>
             </div>

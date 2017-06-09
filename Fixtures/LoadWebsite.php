@@ -25,13 +25,14 @@ class LoadWebsite extends AbstractFixture implements DependentFixtureInterface
             ],
             'templates' => [
                 'marathon_layout',
+                'marathon_navigation_partial',
                 'marathon_home_page_layout',
                 'marathon_home_list_news_partial',
+                'marathon_page_layout',
+                'marathon_single_post_partial',
+                'marathon_post_list_partial',
                 'marathon_gallery_layout',
                 'marathon_contact_layout',
-                'marathon_page_layout',
-                'marathon_post_list_partial',
-                'marathon_single_post_partial',
             ],
             'medias' => [
                 '/public/media/default/thumbnail/theme-marathon-thumbnail.png',
