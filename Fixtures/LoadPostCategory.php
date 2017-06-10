@@ -23,14 +23,16 @@ class LoadPostCategory extends AbstractFixture implements DependentFixtureInterf
     public function load(ObjectManager $manager)
     {
         foreach($this->data as $key => $data) {
-            $postCategory = (PostCategory::where('name',$data['name'])->count() == 0)
+            $website = (isset($data['website'])) ? $this->getReference($data['website']) : null;
+            $count = is_null($website)
+                ? PostCategory::where('name',$data['name'])->count()
+                : PostCategory::where('name',$data['name'])->where('website', $website)->count();
+            $postCategory = ($count == 0)
                 ? new PostCategory()
                 : PostCategory::findOneByName($data['name']);
             $postCategory->setName($data['name']);
             $postCategory->setSlug($data['slug']);
-            if(isset($data['website'])) {
-                $postCategory->setWebsite($this->getReference($data['website']));
-            }
+            $postCategory->setWebsite($website);
             $this->setReference($data['slug'], $postCategory);
             $manager->persist($postCategory);
         }
