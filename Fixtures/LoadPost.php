@@ -53,7 +53,7 @@ class LoadPost extends AbstractFixture implements DependentFixtureInterface
             'content' => '<p>Aliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibuste.</p>',
             'thumbnail' => '/src/Themes/Marathon/Resources/public/img/page1_img7.jpg',
             'categories' => [
-                'course'
+                'marathon-course'
             ],
             'website' => 'marathon-society'
         ],
@@ -64,7 +64,7 @@ class LoadPost extends AbstractFixture implements DependentFixtureInterface
             'content' => '<p>Boliquam nibh ante, egestas id dictum a, commodo re luctus liberaesenucibus malesuada cibustew.</p>',
             'thumbnail' => '/src/Themes/Marathon/Resources/public/img/page1_img8.jpg',
             'categories' => [
-                'course'
+                'marathon-course'
             ],
             'website' => 'marathon-society'
         ]

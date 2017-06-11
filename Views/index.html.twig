@@ -1,9 +1,5 @@
 {% extends template_from_string(data.website_layout) %}
 
-{% block css %}
-
-{% endblock %}
-
 {% block page %}
 
     {% set home_slider = field_render('home_slider', 'page') %}
@@ -69,7 +65,7 @@
                     <a href="{{ link('module:post.type:dynamic.action:read',{'slug': about_us.slug}) }}" class="btn">Voir plus</a>
                 </div>
 
-                {{ content_render('home_list_news') }}
+                {{ content_render('home_list_news') | raw }}
 
                 <div class="clear"></div>
             </div>

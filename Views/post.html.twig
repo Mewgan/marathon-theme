@@ -1,3 +1,7 @@
+<< _seo.offsetSet('title', '{{ field_render('meta_title', 'post@' ~ post.id) }}') >>
+<< _seo.offsetSet('description', '{{ field_render('meta_description', 'post@' ~ post.id) }}') >>
+<< _seo.offsetSet('keywords', '{{ field_render('meta_keywords', 'post@' ~ post.id) }}') >>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 mb40">
@@ -25,8 +29,3 @@
 </div>
 
 <div class="clear"></div>
-<script>
-    document.title = "{{ field_render('meta_title', 'post@' ~ post.id) }}";
-    $('meta[name=description]').attr('content', "{{ field_render('meta_description', 'post@' ~ post.id) }}");
-    $('meta[name=keywords]').attr('content', "{{ field_render('meta_keywords', 'post@' ~ post.id) }}");
-</script>

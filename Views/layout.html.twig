@@ -2,13 +2,19 @@
 <html lang="fr">
 <head>
     {% block head %}
+
+        {{ _seo.offsetSet('title', field_render('meta_title', 'page')) }}
+        {{ _seo.offsetSet('description', field_render('meta_description', 'page')) }}
+        {{ _seo.offsetSet('keywords', field_render('meta_keywords', 'page')) }}
+
+
         <!-- Meta Tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Page Title -->
-        <title>{% block title %}{{ field_render('meta_title','page') }}{% endblock %}</title>
-        <meta name="description" content="{% block description %}{{ field_render('meta_description','page') }}{% endblock %}"/>
-        <meta name="keywords" content="{% block keywords %}{{ field_render('meta_keywords','page') }}{% endblock %}" />
+        <title>{% block title deferred %}{{ _seo.title }}{% endblock %}</title>
+        <meta name="description" content="{% block description deferred %}{{ _seo.description }}{% endblock %}">
+        <meta name="keywords" content="{% block keywords deferred %}{{ _seo.keywords }}{% endblock %}" />
         <link rel="icon" href="{{ img(field_render('favicon').path) }}" />
 
         <script src="{{ asset('libs/jquery/jquery.min.js') }}"></script>
@@ -77,7 +83,7 @@
                         <img src="{{ img(logo.path) }}" alt="{{ logo.alt }}">
                     </a>
                 </h1>
-                {{ content_render('navigation') }}
+                {{ content_render('navigation') | raw }}
             </div>
             <div class="clear"></div>
         </div>

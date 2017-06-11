@@ -66,7 +66,7 @@ class LoadCustomField extends AbstractFixture implements DependentFixtureInterfa
             'title' => 'Catégorie course',
             'rule' => 'post_category',
             'operation' => '=',
-            'reference' => 'course',
+            'reference' => 'marathon-course',
             'website' => 'Marathon Website'
         ],
     ];

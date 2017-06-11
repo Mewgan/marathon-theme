@@ -1,12 +1,8 @@
 {% extends template_from_string(data.website_layout) %}
 
-{% block css %}
-
-{% endblock %}
-
 {% block page %}
 
-    {{ page_render('', 'page') }}
+    {{ include(template_from_string(page_render('', 'page'))) }}
 
 {% endblock %}
 

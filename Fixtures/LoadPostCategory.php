@@ -10,7 +10,7 @@ use Jet\Modules\Post\Models\PostCategory;
 class LoadPostCategory extends AbstractFixture implements DependentFixtureInterface
 {
     protected $data = [
-        [
+        'marathon-course' => [
             'name' => 'Course',
             'slug' => 'course',
             'website' => 'Marathon Website'
@@ -33,7 +33,7 @@ class LoadPostCategory extends AbstractFixture implements DependentFixtureInterf
             $postCategory->setName($data['name']);
             $postCategory->setSlug($data['slug']);
             $postCategory->setWebsite($website);
-            $this->setReference($data['slug'], $postCategory);
+            $this->setReference($key, $postCategory);
             $manager->persist($postCategory);
         }
         $manager->flush();
