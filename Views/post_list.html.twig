@@ -6,18 +6,7 @@
                 {% if posts[0].categories[0].slug == 'course' %}
                     <ul class="list mb20">
                         {% for post in posts %}
-                            {% set params = {} %}
-                            {% for arg in args %}
-                                {% if arg.value != '' %}
-                                    {% set params = params|merge({(arg.route):arg.value}) %}
-                                {% else %}
-                                    {% if arg.alias == 'p' %}
-                                        {% set params = params|merge({(arg.route):attribute(post,arg.column)}) %}
-                                    {% elseif arg.alias == 'c' %}
-                                        {% set params = params|merge({(arg.route):attribute(post.categories[0],arg.column)}) %}
-                                    {% endif %}
-                                {% endif %}
-                            {% endfor %}
+                            {% set params = get_post_params(args, post) %}
                             <li>
                                 <div class="list_count">{{ loop.index }}</div>
                                 <div class="extra_wrapper">
@@ -33,18 +22,7 @@
                 {% else %}
 
                     {% for post in posts %}
-                        {% set params = {} %}
-                        {% for arg in args %}
-                            {% if arg.value != '' %}
-                                {% set params = params|merge({(arg.route):arg.value}) %}
-                            {% else %}
-                                {% if arg.alias == 'p' %}
-                                    {% set params = params|merge({(arg.route):attribute(post,arg.column)}) %}
-                                {% elseif arg.alias == 'c' %}
-                                    {% set params = params|merge({(arg.route):attribute(post.categories[0],arg.column)}) %}
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
+                        {% set params = get_post_params(args, post) %}
                         <div class="news">
                             <time datetime="{{ post.updated_at | date('Y-m-d') }}">{{ post.updated_at | date("d") }}<span>{{ post.updated_at | date("M") }}</span></time>
                             <div class="extra_wrapper">
