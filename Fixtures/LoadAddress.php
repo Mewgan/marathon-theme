@@ -2,30 +2,31 @@
 
 namespace Jet\Themes\Marathon\Fixtures;
 
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Jet\Services\LoadFixture;
 
-class LoadAddress extends AbstractFixture implements DependentFixtureInterface
+class LoadAddress extends AbstractFixture
 {
 
     use LoadFixture;
 
     protected $data = [
-        'marathon' => [
-            'address' => '1 Rue Portefoin',
+        'marathon-address' => [
+            'alias' => 'Adresse de la société',
+            'address' => '10 Rue Portefoin',
             'city' => 'Paris 3',
             'postal_code' => '75003',
-            'society' => 'Marathon Society',
             'country' => 'FRANCE',
+            'account' => 'sumugan.sinnarasa@desico.fr'
         ],
         'luffy-marathon-address' => [
-            'address' => '11 Rue Ave Maria',
+            'alias' => 'Adresse de la société',
+            'address' => '12 Rue Ave Maria',
             'city' => 'Paris',
             'postal_code' => '75000',
-            'society' => 'Luffy Marathon Society',
             'country' => 'FRANCE',
+            'account' => 'luffy@onepiece.com'
         ]
     ];
 
@@ -35,18 +36,5 @@ class LoadAddress extends AbstractFixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $this->loadAddress($manager);
-    }
-
-    /**
-     * This method must return an array of fixtures classes
-     * on which the implementing class depends on
-     *
-     * @return array
-     */
-    function getDependencies()
-    {
-        return [
-            'Jet\Themes\Marathon\Fixtures\LoadSociety'
-        ];
     }
 }

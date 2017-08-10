@@ -13,7 +13,7 @@
                 <div class="map" id="gmap" style="height: 350px;"></div>
             </div>
             <div class="clear"></div>
-            <div class="col-md-12 center">
+            <div class="col-md-12 center mb40">
                 <h3>Information de contact</h3>
                 <h4 class="fz2">{{ society.name }}</h4><br>
                 {{ address.address }},<br>
@@ -28,18 +28,20 @@
 {% endblock %}
 
 {% block js %}
-    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyArNGSSl-KPS23l24EilPNQhfmEw_V8BtI&libraries=places&region=FR"></script>
-    <script>
-        $(document).ready(function () {
-            var latlng = new google.maps.LatLng({{ address.latitude }}, {{ address.longitude }});
-            var map = new google.maps.Map(document.getElementById('gmap'), {
-                zoom: 13,
-                center: latlng
-            });
-            new google.maps.Marker({
-                position: latlng,
-                map: map
-            });
-        })
-    </script>
+    {% if address.latitude is not empty %}
+        <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyArNGSSl-KPS23l24EilPNQhfmEw_V8BtI&libraries=places&region=FR"></script>
+        <script>
+            $(document).ready(function () {
+                var latlng = new google.maps.LatLng({{ address.latitude }}, {{ address.longitude }});
+                var map = new google.maps.Map(document.getElementById('gmap'), {
+                    zoom: 13,
+                    center: latlng
+                });
+                new google.maps.Marker({
+                    position: latlng,
+                    map: map
+                });
+            })
+        </script>
+    {% endif %}
 {% endblock %}
